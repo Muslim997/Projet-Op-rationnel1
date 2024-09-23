@@ -15,30 +15,30 @@ public class SeanceService {
 	@Autowired
 	SeanceRepository seanceRepository;
 	
-	// Obtenir la liste des tuteurs
+	// Obtenir la liste des Seances
 	public List<Seance> getAllSeances(){
 		List<Seance> seances = new ArrayList<>();
 		seanceRepository.findAll().forEach(seance -> seances.add(seance));
 		return seances;
 	}
 
-	// Obtenir la ligne d'un seul tuteur
+	// Obtenir la ligne d'une seule Seance
 	public Seance getSeance(Long id) {
 		return seanceRepository.findById(id).orElse(null);
 	}
 
-	// Ajouter un tuteur
+	// Ajouter une Seance
 	public void addSeance(Seance seance) {
 		seanceRepository.save(seance);
 	}
 
-	// Mettre a jour les info d'un tuteurs
+	// Mettre a jour les info d'une Seance
 
 	public void updateSeance(Seance seance,Long id) {
 		seanceRepository.save(seance);
 	}
 
-	// Supprimer un tuteur
+	// Supprimer une Seance
 	public void deleteSeance(Long id) {
 		seanceRepository.deleteById(id);
 	}

@@ -38,7 +38,7 @@ public class affectationController {
 
 	    // Route pour ajouter une nouvelle Affectation
 	    @PostMapping
-	    public ResponseEntity<Affectation> addSeance(@RequestBody Affectation affectation) {
+	    public ResponseEntity<Affectation> addAffectation(@RequestBody Affectation affectation) {
 	    	affectationService.addAffectation(affectation);
 	        return ResponseEntity.status(201).body(affectation);
 	    }
@@ -48,7 +48,7 @@ public class affectationController {
 	    public ResponseEntity<Affectation> updateAffectation(@PathVariable Long id, @RequestBody Affectation affectation) {
 	    	Affectation existingAffectation = affectationService.getAffectation(id);
 	        if (existingAffectation != null) {
-	        	affectation.setId(id); // Assurez-vous que l'ID est mis à jour
+	        	affectation.setId(id); // Assure que l'ID est mis à jour
 	            affectationService.updateAffectation(affectation, id);
 	            return ResponseEntity.ok(affectation);
 	        }

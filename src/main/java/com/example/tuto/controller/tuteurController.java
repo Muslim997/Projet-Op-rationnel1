@@ -23,32 +23,32 @@ public class tuteurController {
 	 @Autowired
 	    private TuteurService tuteurService;
 
-	    // Route pour obtenir tous les modules
+	    // Route pour obtenir tous les Tuteurs
 	    @GetMapping
 	    public List<Tuteur> getAllTuteurs() {
 	        return tuteurService.getAllTuteurs();
 	    }
 
-	    // Route pour obtenir un module par ID
+	    // Route pour obtenir un Tuteur par ID
 	    @GetMapping("/{id}")
 	    public ResponseEntity<Tuteur> getTuteurById(@PathVariable Long id) {
 	        Tuteur tuteur = tuteurService.getTuteur(id);
 	        return tuteur != null ? ResponseEntity.ok(tuteur) : ResponseEntity.notFound().build();
 	    }
 
-	    // Route pour ajouter un nouveau module
+	    // Route pour ajouter un nouveau Tuteur
 	    @PostMapping
 	    public ResponseEntity<Tuteur> addTuteur(@RequestBody Tuteur tuteur) {
 	    	tuteurService.saveTuteur(tuteur);
 	        return ResponseEntity.status(201).body(tuteur);
 	    }
 
-	    // Route pour mettre à jour un module existant
+	    // Route pour mettre à jour un Tuteur existant
 	    @PutMapping("/{id}")
 	    public ResponseEntity<Tuteur> updateTuteur(@PathVariable Long id, @RequestBody Tuteur tuteur) {
 	        Tuteur existingTuteur = tuteurService.getTuteur(id);
 	        if (existingTuteur != null) {
-	            tuteur.setId(id); // Assurez-vous que l'ID est mis à jour
+	            tuteur.setId(id); // Assure que l'ID est mis à jour
 	            tuteurService.updateTuteur(tuteur, id);
 	            return ResponseEntity.ok(tuteur);
 	        }

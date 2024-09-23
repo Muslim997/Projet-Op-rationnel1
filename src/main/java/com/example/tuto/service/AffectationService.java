@@ -15,32 +15,32 @@ public class AffectationService {
 	@Autowired
 	AffectationRepository affectationRepository;
 	
-	// Obtenir la liste des tuteurs
+	// Obtenir la liste des Affectations
 	public List<Affectation> getAllAffectations(){
 		List<Affectation> affectations = new ArrayList<>();
 		affectationRepository.findAll().forEach(affectation -> affectations.add(affectation));
 		return affectations;
 	}
 
-	// Obtenir la ligne d'un seul tuteur
+	// Obtenir la ligne d'une seule Affectation
 	public Affectation getAffectation(Long id) {
 		return affectationRepository.findById(id).orElse(null);
 	}
 
-	// Ajouter un tuteur
+	// Ajouter une Affectation
 	public void addAffectation(Affectation affectation) {
 		affectationRepository.save(affectation);
 	}
 
 	
-	// Mettre a jour les info d'un tuteurs
+	// Mettre a jour les info d'une Affectation
 
 	public void updateAffectation(Affectation affectation,Long id) {
 		affectationRepository.save(affectation);
 	}
 
 	
-	// Supprimer un tuteur
+	// Supprimer une Affectation
 	public void deleteAffectation(Long id) {
 		affectationRepository.deleteById(id);
 	}

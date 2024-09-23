@@ -23,7 +23,7 @@ public class groupeController {
 	@Autowired
     private GroupeService groupeService;
 
-    // Route pour obtenir tous les modules
+    // Route pour obtenir tous les Groupes
     @GetMapping
     public List<Groupe> getAllGroupes() {
         return groupeService.getAllGroupes();
@@ -38,7 +38,7 @@ public class groupeController {
 
     // Route pour ajouter un nouveau Groupe
     @PostMapping
-    public ResponseEntity<Groupe> addSeance(@RequestBody Groupe groupe) {
+    public ResponseEntity<Groupe> addGroupe(@RequestBody Groupe groupe) {
     	groupeService.addGroupe(groupe);
         return ResponseEntity.status(201).body(groupe);
     }
@@ -48,7 +48,7 @@ public class groupeController {
     public ResponseEntity<Groupe> updateGoupe(@PathVariable Long id, @RequestBody Groupe groupe) {
         Groupe existingGroupe = groupeService.getGroupe(id);
         if (existingGroupe != null) {
-            groupe.setId(id); // Assurez-vous que l'ID est mis à jour
+            groupe.setId(id); // Assure que l'ID est mis à jour
             groupeService.updateGroupe(groupe, id);
             return ResponseEntity.ok(groupe);
         }

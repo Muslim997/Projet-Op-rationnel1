@@ -1,0 +1,30 @@
+<nav>
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/']">Tableau de Bord</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/assignments']">Gestion des Affectations</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/sessions']">Suivi des Séances</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/reports']">Génération de Rapports</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/calendar']">Calendrier</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/users']">Gestion des Utilisateurs</a>
+    </li>
+  </ul>
+</nav>
+<router-outlet></router-outlet> <!-- Ce composant est nécessaire pour afficher les routes -->
+
+
+<footer class="footer mt-auto py-3 bg-light">
+  <div class="container">
+    <span class="text-muted">© 2024 Suivi Tutorat. Tous droits réservés.</span>
+  </div>
+</footer>
